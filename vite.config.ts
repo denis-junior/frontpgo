@@ -10,8 +10,13 @@ export default defineConfig({
   server: {
     host: true,
     port: 5173,
-    allowedHosts: [
-      "a85c-206-84-32-74.ngrok-free.app"
-    ],
   },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    minify: 'esbuild',
+  },
+  preview: {
+    port: 4173,
+  }
 });
