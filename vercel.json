@@ -1,9 +1,14 @@
 {
   "framework": "vite",
-  "buildCommand": "npm build",
+  "buildCommand": "pnpm build",
   "outputDirectory": "dist",
-  "installCommand": "npm install --no-frozen-lockfile",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "env": {
-    "NODE_VERSION": "18"
+    "NODE_VERSION": "18",
+    "VITE_API_URL": "https://sua-api-backend.railway.app",
+    "VITE_VIA_CEP_URL": "https://viacep.com.br/ws",
+    "VITE_CNPJ_API_URL": "https://www.receitaws.com.br/v1/cnpj",
+    "VITE_APP_TITLE": "DrClickPGO",
+    "VITE_APP_VERSION": "1.0.0"
   }
 }

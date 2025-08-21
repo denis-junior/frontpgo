@@ -1,30 +1,13 @@
 import axios from "axios";
 
-interface ViaCepResponse {
-  erro: string | boolean;
-  cep: string;
-  logradouro: string;
-  complemento: string;
-  unidade: string;
-  bairro: string;
-  localidade: string;
-  uf: string;
-  estado: string;
-  regiao?: string;
-  ibge?: string;
-  gia?: string;
-  ddd?: string;
-  siafi?: string;
-}
+const VIA_CEP_URL = import.meta.env.VITE_VIA_CEP_URL || 'https://viacep.com.br/ws';
 
-function getDataFromCep(cep: string): Promise<ViaCepResponse> {
-  const url = `https://viacep.com.br/ws/${cep}/json/`;
-  return axios
-    .get<ViaCepResponse>(url)
-    .then((response) => response.data)
-    .catch((error) => {
-      throw error;
-    });
-}
-
-export default getDataFromCep;
+export const fetchAddressByCep = async (cep: string) => {
+  try {
+    const response = await axios.get(`${VIA_CEP_URL}/${cep}/json/`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar CEP:", error);
+    throw error;
+  }
+};

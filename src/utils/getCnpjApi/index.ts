@@ -1,4 +1,18 @@
+import axios from "axios";
 import { api } from "../API";
+
+const CNPJ_API_URL = import.meta.env.VITE_CNPJ_API_URL || 'https://www.receitaws.com.br/v1/cnpj';
+
+export const fetchCompanyByCnpj = async (cnpj: string) => {
+  try {
+    const cleanedCnpj = cnpj.replace(/\D/g, "");
+    const response = await axios.get(`${CNPJ_API_URL}/${cleanedCnpj}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar CNPJ:", error);
+    throw error;
+  }
+};
 
 interface CnpjResponse {
   erro: boolean | string;
