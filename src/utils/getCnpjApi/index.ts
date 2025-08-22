@@ -1,7 +1,7 @@
 import axios from "axios";
 import { api } from "../API";
 
-const CNPJ_API_URL = import.meta.env.VITE_CNPJ_API_URL || 'https://www.receitaws.com.br/v1/cnpj';
+const CNPJ_API_URL = process.env.VITE_CNPJ_API_URL || 'https://www.receitaws.com.br/v1/cnpj';
 
 export const fetchCompanyByCnpj = async (cnpj: string) => {
   try {

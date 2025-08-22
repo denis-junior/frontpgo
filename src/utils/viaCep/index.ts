@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const VIA_CEP_URL = import.meta.env.VITE_VIA_CEP_URL || 'https://viacep.com.br/ws';
+const VIA_CEP_URL = process.env.VITE_VIA_CEP_URL || 'https://viacep.com.br/ws';
 
 export const fetchAddressByCep = async (cep: string) => {
   try {
