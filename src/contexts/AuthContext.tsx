@@ -5,6 +5,7 @@ import React, {
   ReactNode,
   useState,
 } from "react";
+import { api } from "../utils/API";
 
 interface User {
   id: number;
@@ -54,16 +55,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (email: string, password: string): Promise<boolean> => {
     try {
-      const response = await fetch("http://localhost:3001/api/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
+      const response = await api.post("/api/users/login", {
+        email,
+        password,
       });
 
-      if (response.ok) {
-        const data = await response.json();
+      if (response.status === 200) {
+        const data = response.data;
         setUser(data.user);
         setToken(data.token);
         localStorage.setItem("token", data.token);
