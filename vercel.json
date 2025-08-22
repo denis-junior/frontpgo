@@ -5,7 +5,7 @@
   "installCommand": "pnpm install --no-frozen-lockfile",
   "env": {
     "NODE_VERSION": "18",
-    "VITE_API_URL": "https://0b9483d7a80a.ngrok-free.app",
+    "VITE_API_URL": "backpgo-production.up.railway.app",
     "VITE_VIA_CEP_URL": "https://viacep.com.br/ws",
     "VITE_CNPJ_API_URL": "https://www.receitaws.com.br/v1/cnpj",
     "VITE_APP_TITLE": "DrClickPGO",
