@@ -11,29 +11,29 @@ api.interceptors.request.use((config) => {
 
 export const userService = {
   getAllUsers: async () => {
-    const response = await api.get("/users");
+    const response = await api.get("api/users");
     return response.data;
   },
 
   getUserById: async (id: number) => {
-    const response = await api.get(`/users/${id}`);
+    const response = await api.get(`api/users/${id}`);
     return response.data;
   },
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   createUser: async (userData: any) => {
-    const response = await api.post("/users/register", userData);
+    const response = await api.post("api/users/register", userData);
     return response.data;
   },
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   updateUser: async (id: number, userData: any) => {
-    const response = await api.put(`/users/${id}`, userData);
+    const response = await api.put(`api/users/${id}`, userData);
     return response.data;
   },
 
   deleteUser: async (id: number) => {
-    const response = await api.delete(`/users/${id}`);
+    const response = await api.delete(`api/users/${id}`);
     return response.data;
   },
 };

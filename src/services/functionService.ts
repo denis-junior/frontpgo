@@ -23,28 +23,28 @@ interface IExecFunctionData {
 export const functionService = {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   createFunction: async (functionData: any) => {
-    const response = await api.post("/functions", functionData);
+    const response = await api.post("api/functions", functionData);
     return response.data;
   },
 
   getAllFunctions: async () => {
-    const response = await api.get("/functions");
+    const response = await api.get("api/functions");
     return response.data;
   },
 
   getFunctionById: async (id: number) => {
-    const response = await api.get(`/functions/${id}`);
+    const response = await api.get(`api/functions/${id}`);
     return response.data;
   },
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   updateFunction: async (id: number, functionData: any) => {
-    const response = await api.put(`/functions/${id}`, functionData);
+    const response = await api.put(`api/functions/${id}`, functionData);
     return response.data;
   },
 
   deleteFunction: async (id: number) => {
-    const response = await api.delete(`/functions/${id}`);
+    const response = await api.delete(`api/functions/${id}`);
     return response.data;
   },
 
@@ -52,9 +52,9 @@ export const functionService = {
   executeQuery: async (data: IExecFunctionData) => {
     let response;
     if (data.selectedClinic == "All") {
-      response = await api.post("/functions/execute-query-for-all", data);
+      response = await api.post("api/functions/execute-query-for-all", data);
     } else {
-      response = await api.post("/functions/execute-query", data);
+      response = await api.post("api/functions/execute-query", data);
     }
     return response.data;
   },
