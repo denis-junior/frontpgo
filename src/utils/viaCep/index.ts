@@ -11,3 +11,6 @@ export const fetchAddressByCep = async (cep: string) => {
     throw error;
   }
 };
+
+// Add default export
+export default fetchAddressByCep;

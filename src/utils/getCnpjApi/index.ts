@@ -81,4 +81,4 @@ export async function getCnpjApi(cnpj: string): Promise<CnpjResponse> {
   return response.data;
 }
 
-export default getCnpjApi;
+export default { getCnpjApi, fetchCompanyByCnpj };
