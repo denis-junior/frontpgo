@@ -1,4 +1,5 @@
 import { api } from "../utils/API";
+import { IChangePasswordRequest, IChangePasswordResponse } from "../interfaces/user";
 
 // Add token to requests if available
 api.interceptors.request.use((config) => {
@@ -34,6 +35,11 @@ export const userService = {
 
   deleteUser: async (id: number) => {
     const response = await api.delete(`api/users/${id}`);
+    return response.data;
+  },
+
+  changePassword: async (data: IChangePasswordRequest): Promise<IChangePasswordResponse> => {
+    const response = await api.post("api/users/change-password", data);
     return response.data;
   },
 };
